@@ -121,7 +121,7 @@ arguments specified for the current function in the yaml config file will not be
 ```py
 from typing import Any
 ...
-def func_i(data: dict[str, Any], arg: dict[str, str]) -> dict[str, Any]:
+def func_i(data: dict[str, Any], arg: dict[str, Any]) -> dict[str, Any]:
 	bool_argument = arg['bool_argument']
 
 	# specific code part
@@ -165,7 +165,7 @@ from mcpf_core.core.decorators import with_default_arguments
 @with_default_arguments({
 	bool_argument: False,
 })
-def func_i(data: dict[str, Any], arg: dict[str, str]) -> dict[str, Any]:
+def func_i(data: dict[str, Any], arg: dict[str, Any]) -> dict[str, Any]:
 	bool_argument = arg['bool_argument'] # will not raise here
 
 	# specific code part
@@ -352,7 +352,7 @@ from mcpf_core.core.decorators import with_default_arguments
 		'input': constants.DEFAULT_IO_DATA_LABEL,
 		'output': constants.DEFAULT_IO_DATA_LABEL,
 })
-def func_with_arguments_given_in_config(data: dict[str, Any], meta: dict[str, Any], has_iterated_value: bool, iterated_value: Any, arg: dict[str, str]) -> dict[str, Any]:
+def func_with_arguments_given_in_config(data: dict[str, Any], meta: dict[str, Any], has_iterated_value: bool, iterated_value: Any, arg: dict[str, Any]) -> dict[str, Any]:
 	# if the function is part of a loop
 	if has_iterated_value:
 		arg['input'] = iterated_value	# do something with iterated value
