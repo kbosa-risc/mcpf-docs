@@ -15,7 +15,7 @@ addopts = [
 
 [tool.poetry]
 name = "mcpf"
-version = "0.1.0-rc1"
+version = "0.1.0-rc2"
 description = "Minimalist Configurable Pipelining Framework"
 authors = [
     "Karoly Bosa <karoly.bosa@risc-software.at>"
