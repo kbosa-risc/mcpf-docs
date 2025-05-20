@@ -1,0 +1,85 @@
+workflow:
+  rules:
+    # can not be executed as part of merge request
+    # this avoids weird pipeline behavior (rules:changes comparing to dev branch),
+    # however might produce more job runs
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+      when: never
+    - when: always # Run pipeline in all other cases
+
+# includes from the global ci-templates repository
+include:
+  - project: 'common/ci-templates'
+    ref: main
+    file: '/devops/container/build.yml'
+  - project: 'common/ci-templates'
+    ref: main
+    file: '/devops/python/build-and-publish-pipeline.yml'
+
+# optional - override the default values, if specified
+variables:
+  REGISTRY_BASE_URL: ${CI_REGISTRY_IMAGE}/mcpf
+  # define a specific python version. Will be replaced in a future version by configuring pyenv in pyproject.toml
+  PYTHON_VERSION: '3.10'
+  # defined image for python testing - should be able to run all python stuff
+  PYTHON_IMAGE: ${REGISTRY_BASE_URL}/test
+
+stages:
+  - provision
+  - sast
+  - test
+  - build
+  - publish
+
+build-base-image:
+  stage: provision
+  needs: []
+#  rules:
+#    - changes:
+#      - $PYTHON_WORKING_DIRECTORY/poetry.lock
+#      - $PYTHON_WORKING_DIRECTORY/Dockerfile-base
+  extends:
+    - .kaniko-build-image
+  variables:
+    IMAGE_NAME: ${REGISTRY_BASE_URL}/base
+    DOCKERFILE: Dockerfile-base
+    WORKING_DIRECTORY: ${CI_PROJECT_DIR}/${PYTHON_WORKING_DIRECTORY}
+
+build-test-image:
+  stage: provision
+  needs: []
+#  rules:
+#    - changes:
+#      - $PYTHON_WORKING_DIRECTORY/poetry.lock
+#      - $PYTHON_WORKING_DIRECTORY/Dockerfile-test
+  extends:
+    - .kaniko-build-image
+  variables:
+    IMAGE_NAME: ${REGISTRY_BASE_URL}/test
+    DOCKERFILE: Dockerfile-test
+    WORKING_DIRECTORY: ${CI_PROJECT_DIR}/${PYTHON_WORKING_DIRECTORY}
+
+# Need duplication due to different working directory
+python-test:
+  needs: ["python-precommit-check"]
+  stage: test
+  extends:
+    - .python-test-with-poetry
+  variables:
+    WORKING_DIRECTORY: /repo
+  script:
+    - cd /repo
+    - ln -s ${CI_PROJECT_DIR}/${PYTHON_WORKING_DIRECTORY}/python-junit.xml python-junit.xml
+    - ln -s ${CI_PROJECT_DIR}/${PYTHON_WORKING_DIRECTORY}/coverage.xml coverage.xml
+    - PYTHONPATH=test python -m pytest -ra --import-mode=importlib --doctest-modules --junitxml=python-junit.xml --cov --cov-report=xml --cov-report term
+
+publish-to-risc-pypi:
+  needs: ["build-wheel-poetry"]
+  stage: publish
+  extends:
+    - .publish-to-risc-pypi
+    - .build-on-semversion
+  variables:
+    DIRECTORY: dist/*
+    TWINE_REPOSITORY_URL: https://upload.pypi.org/legacy/
+    TWINE_USERNAME: __token__
