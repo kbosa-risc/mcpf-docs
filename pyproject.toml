@@ -17,6 +17,7 @@ addopts = [
 name = "mcpf"
 version = "0.1.0-rc3"
 description = "Minimalist Configurable Pipelining Framework"
+license = "MIT"
 authors = [
     "Karoly Bosa <karoly.bosa@risc-software.at>"
 ]
