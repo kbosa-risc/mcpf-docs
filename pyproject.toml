@@ -28,11 +28,12 @@ packages = [
 # Do not add any mandatory dependencies here.
 # Define all packages in the mcp subgroup here as optional dependencies.
 [tool.poetry.dependencies]
-python = "~3.10"
-mcpf-io = { version = "^0.1.0-rc2", optional = true }
-mcpf-io-pandas = { version = "^0.1.0-rc2", optional = true }
-mcpf-xform = { version = "^0.1.0-rc2", optional = true }
-mcpf-xform-pandas = { version = "^0.1.0-rc2", optional = true }
+python = "^3.10"
+mcpf-core = { path="../mcpf-core", develop = true }
+mcpf-io = { path="../mcpf-io", develop = true }
+mcpf-io-pandas = { path="../mcpf-io-pandas", develop = true }
+mcpf-xform = { path="../mcpf-xform", develop = true }
+mcpf-xform-pandas = { path="../mcpf-xform-pandas", develop = true }
 #mcpf-xform-sql = { version = "^0.1.0-rc2", optional = true }
 #mcpf-db = { version = "^0.1.0-rc2", optional = true }
 #mcpf-db-postgres = { version = "^0.1.0-rc2", optional = true }
