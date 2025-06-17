@@ -15,7 +15,7 @@ addopts = [
 
 [tool.poetry]
 name = "mcpf"
-version = "0.1.0-rc2"
+version = "0.1.0-rc3"
 description = "Minimalist Configurable Pipelining Framework"
 authors = [
     "Karoly Bosa <karoly.bosa@risc-software.at>"
@@ -28,16 +28,14 @@ packages = [
 # Do not add any mandatory dependencies here.
 # Define all packages in the mcp subgroup here as optional dependencies.
 [tool.poetry.dependencies]
-python = "~3.10"
-mcpf-io = { version = "^0.1.0-rc2", optional = true }
-mcpf-io-pandas = { version = "^0.1.0-rc2", optional = true }
-mcpf-xform = { version = "^0.1.0-rc2", optional = true }
-mcpf-xform-pandas = { version = "^0.1.0-rc2", optional = true }
-#mcpf-xform-sql = { version = "^0.1.0-rc2", optional = true }
-#mcpf-db = { version = "^0.1.0-rc2", optional = true }
-#mcpf-db-postgres = { version = "^0.1.0-rc2", optional = true }
-#mcpf-db-influx = { version = "^0.1.0-rc2", optional = true }
-
+python = "^3.10"
+mcpf-io = { version = "^0.1.0-rc3", optional = true }
+mcpf-io-pandas = { version = "^0.1.0-rc3", optional = true }
+mcpf-xform = { version = "^0.1.0-rc3", optional = true }
+mcpf-xform-pandas = { version = "^0.1.0-rc3", optional = true }
+mcpf-xform-sql = { version = "^0.1.0-rc3", optional = true }
+mcpf-db-postgres = { version = "^0.1.0-rc3", optional = true }
+mcpf-db-influx = { version = "^0.1.0-rc3", optional = true }
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.19.0"
@@ -51,8 +49,9 @@ ruff = "^0.0.259"
 [tool.poetry.extras]
 io = ["mcpf-io", "mcpf-io-pandas"]
 xform = ["mcpf-xform", "mcpf-xform-pandas"]
-#postgres = ["mcpf-db-postgres"]
-#influx = ["mcpf-db-influx"]
+xql = ["mcpf-xform-sql"]
+postgres = ["mcpf-db-postgres"]
+influx = ["mcpf-db-influx"]
 
 [tool.ruff]
 line-length = 120
