@@ -25,6 +25,9 @@ packages = [
     { include = "mcpf_metapackage" },
 ]
 
+[tool.poetry.urls]
+"Example" = "https://www.risc-software.at/app/uploads/2025/05/mcpf-getting-started.zip"
+
 # This package is a meta package that does not contain any code.
 # Do not add any mandatory dependencies here.
 # Define all packages in the mcp subgroup here as optional dependencies.
