@@ -7,3 +7,19 @@ Each pipeline consists of a list of python functions that are called in the very
 
 * See [usage](docs/usage.md) on how to use the MCPF.
 * See [coding guidelines](docs/coding-guidelines.md) on how to write your own pipeline functions in Python.
+
+## Extras
+
+The MCPF is build on a modular collection of packages. This package provides the following extras to facilitate the installation of your specific MCPF needs.
+
+* `io` IO-related functions with filesystem and Pandas dataframe support.
+* `xform` transformation functions to convert, filter and process data in Pandas dataframes.
+* `xql` Query pandas dataframes with an SQL like language.
+* `postgres` PostgreSQL related functions.
+* `influx` Influx related functions.
+
+To install extras, use
+
+```sh
+poetry add 'mcpf[postgres]'
+```
