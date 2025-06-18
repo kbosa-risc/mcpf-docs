@@ -358,13 +358,13 @@ colors = ["colorama (>=0.4.6)"]
 
 [[package]]
 name = "mcpf-core"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Core"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_core-0.1.0rc3-py3-none-any.whl", hash = "sha256:c8868e074ca7ea38b983e01a49e1802fa05861276548750fd58e5e08349586c3"},
-    {file = "mcpf_core-0.1.0rc3.tar.gz", hash = "sha256:a5a692e415fb75c8d9d2a5428d460045461286e505513758db44e8a12112fe9f"},
+    {file = "mcpf_core-0.1.0-py3-none-any.whl", hash = "sha256:45ea42a3e09ad4381920eb99283d55f3c0dc06bc89e399e3fd0f1ab390bc232b"},
+    {file = "mcpf_core-0.1.0.tar.gz", hash = "sha256:dc1068f54393f2065d806adf9373c68792f62d0463361c2a4da952ef20c06126"},
 ]
 
 [package.dependencies]
@@ -373,125 +373,125 @@ toolz = ">=0.12.1,<0.13.0"
 
 [[package]]
 name = "mcpf-db"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- General Database Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_db-0.1.0rc3-py3-none-any.whl", hash = "sha256:595df8a9b1698c807deb233c9f126402697f2339bef4d66ba623e02279b0ac7c"},
-    {file = "mcpf_db-0.1.0rc3.tar.gz", hash = "sha256:ae6a2b1f3b5ebf3671641464c8b22f6430fe70d3032de2efda70af0955cb6f8e"},
+    {file = "mcpf_db-0.1.0-py3-none-any.whl", hash = "sha256:f58077c528a0c1bfce4b16bdac62c301376ef1deac410a9b402d0ccfe33f272c"},
+    {file = "mcpf_db-0.1.0.tar.gz", hash = "sha256:e7d846a840cc18fa2858153371bb4742d8b6cf2f0863c4951cd2d76975f89efc"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 
 [[package]]
 name = "mcpf-db-influx"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Influx-specific Database Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_db_influx-0.1.0rc3-py3-none-any.whl", hash = "sha256:85b5f3b7183524ec554f249a7eb5f047797457115d94d2450ba1c91169eeed11"},
-    {file = "mcpf_db_influx-0.1.0rc3.tar.gz", hash = "sha256:7e4850b9b0956422aa9524795a6eca0c9a494df9b0460705af9b566bd0cd36ad"},
+    {file = "mcpf_db_influx-0.1.0-py3-none-any.whl", hash = "sha256:1a95fa5e717966769d49ce801e9a2e966292ebc472077e16c2665432bf1d4ca7"},
+    {file = "mcpf_db_influx-0.1.0.tar.gz", hash = "sha256:5625f877891086e064045432797fe830122cbcca4f90fb60de35a3cf91574a31"},
 ]
 
 [package.dependencies]
 influxdb-client = ">=1.22.0,<2.0.0"
-mcpf-core = ">=0.1.0rc3,<0.2.0"
-mcpf-db = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
+mcpf-db = ">=0.1.0,<0.2.0"
 pandas = ">=1.4.0"
 
 [[package]]
 name = "mcpf-db-postgres"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Postgres specific Database Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_db_postgres-0.1.0rc3-py3-none-any.whl", hash = "sha256:3aaa86c8f054708a834631c07b404b93b4828efc08d77bf2175b6ffce2c50295"},
-    {file = "mcpf_db_postgres-0.1.0rc3.tar.gz", hash = "sha256:edda99ccc6015ab59c61b3d905d19fae90e2623c347f81c1ba29b6321890e2ce"},
+    {file = "mcpf_db_postgres-0.1.0-py3-none-any.whl", hash = "sha256:8eb18b0154bea8c46f52cf7ab6290af15d51853675f49a366b6322ce7c766094"},
+    {file = "mcpf_db_postgres-0.1.0.tar.gz", hash = "sha256:134ed8c3f5702f8304cf7c0a927aca1e812f871488fe3c8b5c158d1dcaad2a9a"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
-mcpf-db = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
+mcpf-db = ">=0.1.0,<0.2.0"
 pandas = ">=1.4.0"
 sqlalchemy = ">=1.4.0"
 
 [[package]]
 name = "mcpf-io"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelining Framework -- Basic Input/Output Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_io-0.1.0rc3-py3-none-any.whl", hash = "sha256:66b48c961085fd6d0c0cccaf645ae5c7272e85ea86489b77f63a45419864d9d9"},
-    {file = "mcpf_io-0.1.0rc3.tar.gz", hash = "sha256:fcadcbfca15adddc9f9f719483c5ca0aebd001304bd447a9edb6d829b234237e"},
+    {file = "mcpf_io-0.1.0-py3-none-any.whl", hash = "sha256:b5a84eb6fb400e5dd3e0a8a6f58ba415621d15a953884adb7be455762c4497ed"},
+    {file = "mcpf_io-0.1.0.tar.gz", hash = "sha256:8c276347549a5d9f45f537af6d972662bbdee635a4a792a2c6cfc77429cc6a95"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 
 [[package]]
 name = "mcpf-io-pandas"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Pandas Dataframe based Input/Output Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_io_pandas-0.1.0rc3-py3-none-any.whl", hash = "sha256:3f29887613b30037102d7d333c263fc334f7992268320126925bfc6fc695165d"},
-    {file = "mcpf_io_pandas-0.1.0rc3.tar.gz", hash = "sha256:723bda6cfa007053d06c8753f1409fea23b99a4c43d557bef2f764857553070e"},
+    {file = "mcpf_io_pandas-0.1.0-py3-none-any.whl", hash = "sha256:18546718fb28418b885ed4b24e2d26a8ca7b1c3fcf62f7baa5f6c3423009082e"},
+    {file = "mcpf_io_pandas-0.1.0.tar.gz", hash = "sha256:4ece71a22174ddc1a77637fe400853d719b6b55e21b5bd0ca9cb9c29d260e434"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 pandas = ">=1.4.0"
 pyarrow = ">=7.0.0"
 
 [[package]]
 name = "mcpf-xform"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Basic Transformation Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_xform-0.1.0rc3-py3-none-any.whl", hash = "sha256:4d80654f3cf4e6ade98c61e834ade479c96efd0683cec1334fd868e44f2636d2"},
-    {file = "mcpf_xform-0.1.0rc3.tar.gz", hash = "sha256:55649a6c09e8b95e7703d29768183e3aaa61769401a461fa4cda2761e888d062"},
+    {file = "mcpf_xform-0.1.0-py3-none-any.whl", hash = "sha256:33c54996609438922c10e7b817f1bc6dd0b0fc6bcf433a7a31d208797534279b"},
+    {file = "mcpf_xform-0.1.0.tar.gz", hash = "sha256:c09491a653dc23414ce269baa9dfe17af2e7e9dce8dbde33eea916745e2a1c5b"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 
 [[package]]
 name = "mcpf-xform-pandas"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- Pandas Dataframe based Transformation Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_xform_pandas-0.1.0rc3-py3-none-any.whl", hash = "sha256:4a84691ca24049d3c65cba67cd85dfddd2d88470718622a083bc8227b0fc0cda"},
-    {file = "mcpf_xform_pandas-0.1.0rc3.tar.gz", hash = "sha256:d8e5657228f92dc41f1c8656727360b2bec9d664e4ec82942bcbc290e2bce356"},
+    {file = "mcpf_xform_pandas-0.1.0-py3-none-any.whl", hash = "sha256:3e2a1b4b17623ea21b96f90ee5b1eb0623972af5dab906a5783a69e33c6b6212"},
+    {file = "mcpf_xform_pandas-0.1.0.tar.gz", hash = "sha256:cf01ea136afefb54b8e8cbd6df63709001c5969341990100f5a5b29348a0c719"},
 ]
 
 [package.dependencies]
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 pandas = ">=1.4.0"
 
 [[package]]
 name = "mcpf-xform-sql"
-version = "0.1.0rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelineing Framework -- SQL Query Overlay Functions"
 optional = true
 python-versions = "<4.0,>=3.10"
 files = [
-    {file = "mcpf_xform_sql-0.1.0rc3-py3-none-any.whl", hash = "sha256:2e5250c9c899a258eef2660243a9e8d8fd4e2bcfb39d9c4ce2a9ba1bc1ada7fe"},
-    {file = "mcpf_xform_sql-0.1.0rc3.tar.gz", hash = "sha256:fe175ed8d80a2c1f503bfec778bdcdcf9f2993c4aa01b0fb13d514c3f4811517"},
+    {file = "mcpf_xform_sql-0.1.0-py3-none-any.whl", hash = "sha256:d657572cb3512a36457a9ca5a0d4946e85cc168e171ed6dfe557b63e954dbd0f"},
+    {file = "mcpf_xform_sql-0.1.0.tar.gz", hash = "sha256:afc025a9935a394c36764d21ad8b858fcf0a6778243605ff55f09733ef20694f"},
 ]
 
 [package.dependencies]
 duckdb = ">=0.9.0"
-mcpf-core = ">=0.1.0rc3,<0.2.0"
+mcpf-core = ">=0.1.0,<0.2.0"
 pandas = ">=1.4.0"
 
 [[package]]
@@ -1232,4 +1232,4 @@ xql = ["mcpf-xform-sql"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b43d584865f352bbbdb7c8a94fa2d5bd5777f5bd4e9aebe6088898abe530daac"
+content-hash = "997b89b923648a2b21d9e010e82aa15439758fa1cb4b199412a277db5c83c9e7"
