@@ -15,8 +15,9 @@ addopts = [
 
 [tool.poetry]
 name = "mcpf"
-version = "0.1.0-rc3"
+version = "0.1.0"
 description = "Minimalist Configurable Pipelining Framework"
+license = "MIT"
 authors = [
     "Karoly Bosa <karoly.bosa@risc-software.at>"
 ]
@@ -24,18 +25,21 @@ packages = [
     { include = "mcpf_metapackage" },
 ]
 
+[tool.poetry.urls]
+"Example" = "https://www.risc-software.at/app/uploads/2025/05/mcpf-getting-started.zip"
+
 # This package is a meta package that does not contain any code.
 # Do not add any mandatory dependencies here.
 # Define all packages in the mcp subgroup here as optional dependencies.
 [tool.poetry.dependencies]
 python = "^3.10"
-mcpf-io = { version = "^0.1.0-rc3", optional = true }
-mcpf-io-pandas = { version = "^0.1.0-rc3", optional = true }
-mcpf-xform = { version = "^0.1.0-rc3", optional = true }
-mcpf-xform-pandas = { version = "^0.1.0-rc3", optional = true }
-mcpf-xform-sql = { version = "^0.1.0-rc3", optional = true }
-mcpf-db-postgres = { version = "^0.1.0-rc3", optional = true }
-mcpf-db-influx = { version = "^0.1.0-rc3", optional = true }
+mcpf-io = { version = "^0.1.0", optional = true }
+mcpf-io-pandas = { version = "^0.1.0", optional = true }
+mcpf-xform = { version = "^0.1.0", optional = true }
+mcpf-xform-pandas = { version = "^0.1.0", optional = true }
+mcpf-xform-sql = { version = "^0.1.0", optional = true }
+mcpf-db-postgres = { version = "^0.1.0", optional = true }
+mcpf-db-influx = { version = "^0.1.0", optional = true }
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.19.0"
