@@ -15,7 +15,7 @@ addopts = [
 
 [tool.poetry]
 name = "mcpf"
-version = "0.1.0"
+version = "0.1.0.post1"
 description = "Minimalist Configurable Pipelining Framework"
 license = "MIT"
 authors = [
@@ -26,7 +26,7 @@ packages = [
 ]
 
 [tool.poetry.urls]
-"Example" = "https://www.risc-software.at/app/uploads/2025/05/mcpf-getting-started.zip"
+"Example" = "https://www.risc-software.at/app/uploads/2025/06/mcpf-getting-started-3.zip"
 
 # This package is a meta package that does not contain any code.
 # Do not add any mandatory dependencies here.
