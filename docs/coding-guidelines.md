@@ -17,7 +17,7 @@ def test1(data: dict[str, Any]) -> dict[str, Any]:
 Other functions which are called only from python code do not have to fulfill this requirement.
 
 ### Best Practice
-To facilitate the general re-usability of your code, use always the same (default) label (e.g.: see DEFAULT_IO_DATA_LABEL in [constants.py](https://gitdma.risc-software.at/risc_de/mcp/mcpf-core/-/blob/master/mcpf_core/func/constants.py))
+To facilitate the general re-usability of your code, use always the same (default) label (e.g.: see DEFAULT_IO_DATA_LABEL in [constants.py](https://github.com/kbosa-risc/mcpf-core/blob/master/mcpf_core/func/constants.py))
 for storing the current input data in the passed though dictionary *data*. 
 
 ```py
@@ -90,7 +90,7 @@ Additional arguments can be defined in the yaml config file for functions, e.g.:
 ```
 
 These arguments are added to json string called *meta*, when the corresponding python function called. 
-They are stored as a dictionary under the label 'arguments' (use the constants 'ARGUMENTS' defined in [constants.py](https://gitdma.risc-software.at/risc_de/mcp/mcpf-core/-/blob/master/mcpf_core/func/constants.py)):
+They are stored as a dictionary under the label 'arguments' (use the constants 'ARGUMENTS' defined in [constants.py](https://github.com/kbosa-risc/mcpf-core/blob/master/mcpf_core/func/constants.py)):
 
 
 ### Explicitly access arguments
@@ -216,7 +216,7 @@ If there is no registered list of iterator values or it is empty, the loop kerne
 
 The framework allows to define embedded loops in a yaml configuration, for instance lets regard the following pipeline which is 
 going to list the content of the input folder given in the **input_path** element and of its sub-folders 
-(for the the complete yaml configuration, see the [getting started use case](https://gitdma.risc-software.at/risc_de/mcp/mcpf-getting-started/-/blob/master/mcp_use_case_getting_started/README.md)).
+(for the the complete yaml configuration, see the [getting started use case](https://github.com/kbosa-risc/mcpf-getting-started/blob/master/README.md)).
 
 ```yaml
 pipelines:
@@ -364,10 +364,10 @@ def func_with_arguments_given_in_config(data: dict[str, Any], meta: dict[str, An
 
 ### Already implemented routines
 
-Some generally implemented logics (e.g.: reading/writing csv/parquet files or accessing influx/timescale database) have already been available in the following packages
+Some generally implemented logics (e.g.: reading/writing csv/parquet files or manipulating dataframes with sql statements, etc) have already been available in the following packages
 (please note that these are just preliminary implementations and still have to be finalized):
-* [mcpf-io](https://gitdma.risc-software.at/risc_de/mcp/mcpf-io/-/blob/master/README.md)
-* [mcpf-db](https://gitdma.risc-software.at/risc_de/mcp/mcpf-db/-/blob/master/README.md)
-* [mcpf-xform](https://gitdma.risc-software.at/risc_de/mcp/mcpf-xform/-/blob/master/README.md)
+* [mcpf-io](https://github.com/kbosa-risc/mcpf-io)
+* [mcpf-xform](https://github.com/kbosa-risc/mcpf-xform)
+* [mcpf-xform-sql](https://github.com/kbosa-risc/mcpf-xform-sql)
 
 
