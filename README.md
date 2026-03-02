@@ -8,7 +8,7 @@ Each pipeline consists of a list of python functions that are called in the very
 * See [usage](docs/usage.md) on how to use the MCPF.
 * See [coding guidelines](docs/coding-guidelines.md) on how to write your own pipeline functions in Python.
 
-A preliminary version of a [DSL schema](dsl_schema/mcpf.schema.json) (in JSON format) is also provided and can be integrated into development environments such as Visual Studio Code or PyCharm. This enables syntax validation, auto-completion, and parameter hints during pipeline authoring. See the [README](dsl_schema/README) for details.
+A preliminary version of a [DSL schema](dsl_schema/mcpf.schema.json) (in JSON format) is also provided and can be integrated into development environments such as Visual Studio Code or PyCharm. This enables syntax validation, auto-completion, and parameter hints during pipeline authoring. See the [README](dsl_schema/README.md) for details.
 
 ## Extras
 
