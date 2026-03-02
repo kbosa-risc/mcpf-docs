@@ -1,0 +1,186 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MCPF Pipeline Schema",
+  "type": "object",
+  "properties": {
+    "input_path": { "type": "string" },
+    "output_path": { "type": "string" },
+    "entry_point": { "type": "string" },
+    "imports": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          { "enum": ["mcpf_io.io", "mcpf_io.pd", "mcpf_xform.pd", "mcpf_ai_agent.llm_client_based_lib", "mcp_general_functions.mcp_general_io", "mcp_general_functions.mcp_general_transformations"] },
+          { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_\\.]*$" }
+        ]
+      }
+    },
+	"further_configuration": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "pipelines": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/pipelineDefinition" }
+    },
+    "pipeline_extension": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/pipelineDefinition" }
+    }
+  },
+  "definitions": {
+    "pipelineDefinition": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "$ref": "#/definitions/pipelineBody"
+      }
+    },
+    "pipelineBody": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/pipelineStep" }
+    },
+    "pipelineStep": {
+      "type": "object",
+      "minProperties": 1,
+      "maxProperties": 1,
+      "properties": {
+        "read_csv": { "$ref": "#/definitions/read_csv" },
+        "print_to_stdout": { "$ref": "#/definitions/print_to_stdout" },
+        "list_dir": { "$ref": "#/definitions/list_dir" },
+        "regex_based_csv_line_data_correctness": { "$ref": "#/definitions/regex_based_csv_line_data_correctness" },
+        "vertical_concatenation": { "$ref": "#/definitions/vertical_concatenation" },
+        "loop": { "$ref": "#/definitions/loop" },
+        "df_sql_statement": { "$ref": "#/definitions/df_sql_statement" },
+        "create_test_env": { "$ref": "#/definitions/create_test_env" },
+        "filtered_data_loader": { "$ref": "#/definitions/filtered_data_loader" },
+        "data_manipulation": { "$ref": "#/definitions/data_manipulation" },
+        "timescale_df_write": { "$ref": "#/definitions/timescale_df_write" }
+      },
+      "additionalProperties": { "type": ["array", "null"] }
+    },
+    "read_csv": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relative_path": { "type": "boolean", "default": false },
+          "separator": { "type": "string", "default": "," },
+          "output": { "type": "string", "default": "" },
+          "csv_file_extension_only": { "type": "boolean", "default": false },
+          "file_name": { "type": "string" },
+          "input_path": { "type": "string" },
+          "skip_rows": { "type": "integer" },
+          "engine": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "print_to_stdout": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": { "type": "string", "default": "" },
+          "is_literal": { "type": "boolean", "default": false },
+          "output": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "list_dir": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relative_path": { "type": "boolean", "default": true },
+          "output_for_iteration": { "type": "boolean", "default": false }
+        },
+        "additionalProperties": false
+      }
+    },
+    "regex_based_csv_line_data_correctness": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "column_name": { "type": "string", "default": "" },
+          "to_match": { "type": "string", "default": "" },
+          "to_change": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "vertical_concatenation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "input": { "type": "string", "default": "" },
+          "left_value": { "type": "string", "default": "" },
+          "output": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "loop": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "df_sql_statement": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "SQL_STMT": { "type": "string", "default": "" },
+          "output": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "create_test_env": {
+      "type": "array",
+      "items": { "type": "object", "additionalProperties": false }
+    },
+    "filtered_data_loader": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "link": { "type": "string" },
+          "data_type": { "type": "string" },
+          "name": { "type": "string" },
+          "filter_prompt": { "type": "string" },
+          "output": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "data_manipulation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prompt": { "type": "string", "default": "" },
+          "output": { "type": "string", "default": "" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "timescale_df_write": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema": { "type": "string" },
+          "table": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
